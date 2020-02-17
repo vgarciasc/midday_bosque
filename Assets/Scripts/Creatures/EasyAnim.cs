@@ -14,7 +14,10 @@ public class EasyAnim : MonoBehaviour
     void OnEnable()
     {
         sr = this.GetComponent<SpriteRenderer>();
-        StartCoroutine(Anim());
+    
+        if (frames.Count > 0) {
+            StartCoroutine(Anim());
+        }
     }
 
     IEnumerator Anim() {

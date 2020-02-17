@@ -3,7 +3,7 @@
 -> END
 
 === YOUR_FRIEND ===
-- \(ainda esta consciente. ele nao tem muito tempo...\)
+- <color=\#555555>\(ainda esta consciente. nao temos muito tempo...\)</color>
 -> END
 
 === FAIRY_STATUE ===
@@ -20,15 +20,18 @@
 === KOROK_SNAIL ===
 { stopping: 
 - mamae me trancou aqui fora... DE NOVO
-ela disse q eu encho mto o saco e nao deixo ela fazer o almoco!
+ ela disse q eu encho mto o saco e nao deixo ela fazer o almoco!
 - eu tenho culpa irmaozinho? caracol eh mto gostoso.
-- caracol. hummmmm
+}
+{ cycle:
+- eu mesmo iria pegar caracol pra eu comer, se mamae deixasse eu ir pras cavernas ao norte!
+- caracol. <anim=SlowSine>hummmmm</anim>
 }
 -> END
 
 === KOROK_WELCOME ===
 { stopping:
-- ola companheira!! bem-vinda ao BOSQUE DA SANTA FADA!
+- ola companheira!! bem-vinda ao <anim=SlowSine><color=\#d62885>BOSQUE DA SANTA FADA</color></anim>!
 - eu nao sei pq vc veio, e sinceramente nao me importo...
 estou cansado de seres humanos estragando nosso BOSQUE!!
 - mas ja que veio, saca soh nossa mais nova estatua. nao eh linda?
@@ -81,12 +84,31 @@ eu que fiz rs.
 { stopping:
 - Boa tarde meu nome eh Coach Jonas. Gostaria de uma licao de empreendedorismo?
 - Eu me mudei para a regiao querendo paz e sossego. Porem ao chegar descobri que a agua tem um leve gosto de terra.
-- Ao inves de me ACOMODAR com a situacao adversa, fui PROATIVO.
-- Estudei o LAYOUT da REGION e construi meu proprio ENCANAMENTO.
-- Agora tenho acesso a agua mais PURA POSSIVEL!!!
-- Na verdade ela eh tao PURA que acho que possui propriedades magicas de cura.
-- Toda vez que eu dou um gole, eu fico 3 segundos mais jovem!!
-- Ainda estou estudando o MARKET pra entender como CAPITALIZAR em cima desse produto...
-- Mas pra ser sincero nao tenho tido muita vontade de empreender recentemente...
+ Ao inves de me ACOMODAR com a situacao adversa, fui <anim=SlowSine>PROATIVO</anim>.
+ Estudei o <anim=SlowSine>LAYOUT</anim> da <anim=SlowSine>REGION</anim> e construi meu proprio <anim=SlowSine>ENCANAMENTO</anim>.
+ Agora tenho acesso a agua mais <anim=LightPos>PURA POSSIVEL</anim>!!!
+- Na verdade ela eh tao <anim=FullShake><color=\#d62885>PURA</color></anim> que acho que possui propriedades magicas de cura.
+ Toda vez que eu dou um gole, eu fico 3 segundos mais jovem!!
+- Ainda estou estudando o <anim=SlowSine>MARKET</anim> pra entender como <anim=LightPos>CAPITALIZAR</anim> em cima desse produto...
+ Mas pra ser sincero nao tenho tido muita vontade de empreender ultimamente...
+}
+-> END
+
+=== KOROK_WATER ===
+{ stopping:
+- oi! esse eh o nosso lago.
+ eu adoro a agua do lago, sem ela eu morreria de sede!
+- tem gente que reclama que ela tem gosto de terra, mas caramba, terra eh tao gostoso!! <color=\#bbbbbb>(sou uma planta)</color>
+ me pergunto se essas pessoas ja PROVARAM terra pra fazer essa comparacao!!
+- o ultimo infeliz q ficou reclamando eu pessoalmente expulsei do nosso vilarejo. safado!
+ espero que a essa altura do campeonato ele ja tenha morrido de sede<anim=LightPos>!!!</anim>
+}
+-> END
+
+=== KOROK_HIGH ===
+{ shuffle:
+- <color=\#ed63d8><anim=SlowestSine>caracol me deixa alto... entendeu... alto...</anim></color>
+- <color=\#ed63d8><anim=SlowestSine>caracol eh mto bom irmaozinho...</anim></color>
+- <color=\#ed63d8><anim=SlowestSine>caracol. huuummmm...</anim></color>
 }
 -> END

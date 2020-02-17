@@ -25,23 +25,14 @@ public class InventoryManager : MonoBehaviour
     [HideInInspector]
     public ItemUI currentItem = null;
 
+    Dictionary<ItemsEnum, int> inventory = new Dictionary<ItemsEnum, int>();
+
     void Start() {
+        foreach (ItemsEnum item in System.Enum.GetValues(typeof(ItemsEnum))) {
+            inventory.Add(item, 0);
+        }
+
         AcquireItem(ItemsEnum.BOTTLE);
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            AcquireItem(ItemsEnum.BOTTLE);
-        }
-
-        if (Input.GetKeyDown(KeyCode.G)) {
-            AcquireItem(ItemsEnum.POWDER);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X)) {
-            SelectNextItem();
-        }
     }
 
     void AcquireItem(ItemsEnum kind) {
@@ -55,11 +46,18 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    void UnacquireItem(ItemsEnum kind) {
+        var obj = GetItemUI(kind).objUI;
+        // obj.transform.SetAsLastSibling();
+        obj.SetActive(false);
+        SelectNextItem();
+    }
+
     ItemUI GetItemUI(ItemsEnum kind) {
         return items.Find((f) => f.itemKind == kind);
     }
 
-    void SelectNextItem() {
+    public void SelectNextItem() {
         if (currentItem == null) return;
         
         int currIndex = currentItem.objUI.transform.GetSiblingIndex();
@@ -89,5 +87,19 @@ public class InventoryManager : MonoBehaviour
         } else {
             marker.gameObject.SetActive(false);
         }
+    }
+
+    public void Change(ItemsEnum itemkind, int amount) {
+        var itemUI = GetItemUI(itemkind).objUI.GetComponent<InventoryItemUI>();
+        
+        if (inventory[itemkind] == 0 && amount > 0) {
+            AcquireItem(itemkind);
+        }
+        if (inventory[itemkind] + amount == 0) {
+            UnacquireItem(itemkind);
+        }
+
+        inventory[itemkind] += amount;
+        itemUI.SetAmount(inventory[itemkind]);
     }
 }

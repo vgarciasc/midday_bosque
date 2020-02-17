@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.Reflection;
  
 public class ImagePostProcress : AssetPostprocessor
 {
@@ -10,19 +11,55 @@ public class ImagePostProcress : AssetPostprocessor
 		TextureImporter importer = assetImporter as TextureImporter;
 		string name = importer.assetPath.ToLower();
 		string extension = name.Substring(name.LastIndexOf(".")).ToLower();
-        
-		if (extension == ".png") { 
-			importer.spritePixelsPerUnit = 16;
+
+		var size = GetWidthAndHeight(importer);
+
+		if (extension == ".png") {
 			importer.textureCompression = TextureImporterCompression.Uncompressed;
 			importer.filterMode = FilterMode.Point;
+			if (size.x == 16 || size.y == 16) { 
+				importer.spritePixelsPerUnit = 16;
+			}
+			if (size.x != 16 || size.y != 16) {
+				importer.spriteImportMode = SpriteImportMode.Multiple;
+			}
 		}
 	}
+
+	void OnPostprocessTexture(Texture2D texture) {
+		TextureImporter importer = assetImporter as TextureImporter;
+		string name = importer.assetPath.ToLower();
+		string assetName = name.Substring(
+			name.LastIndexOf("/") + 1, 
+			name.LastIndexOf(".") - 1 - name.LastIndexOf("/"));
+
+		int spriteSize = 16;
+        int colCount = texture.width / spriteSize;
+        int rowCount = texture.height / spriteSize;
  
-	private bool IsPixelArt(string path)
-	{
-		if (path.Contains("piskel"))
-			return true;
+        List<SpriteMetaData> metas = new List<SpriteMetaData>();
  
-		return false;
+        for (int r = 0; r < rowCount; ++r) {
+            for (int c = 0; c < colCount; ++c) {
+                SpriteMetaData meta = new SpriteMetaData();
+                meta.rect = new Rect(c * spriteSize, r * spriteSize, spriteSize, spriteSize);
+                meta.name = assetName + "_" + c + "-" + r;
+                metas.Add(meta);
+            }
+        }
+ 
+        importer.spritesheet = metas.ToArray();
+		AssetDatabase.Refresh(); 
+	}
+ 
+	private Vector2 GetWidthAndHeight(TextureImporter importer) {
+		if (importer == null) return Vector2.zero;
+		
+		object[] args = new object[2] { 0, 0 };
+		MethodInfo mi = typeof(TextureImporter).GetMethod("GetWidthAndHeight", BindingFlags.NonPublic | BindingFlags.Instance);
+		mi.Invoke(importer, args);
+		return new Vector2(
+			(int) args[0],
+			(int) args[1]);
 	}
 }

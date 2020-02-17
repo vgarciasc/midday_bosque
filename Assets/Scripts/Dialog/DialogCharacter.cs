@@ -2,41 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogCharacter : MonoBehaviour {
-
+public class DialogCharacter : MonoBehaviour, PlayerInteractive {
 	public string dialogID = "";
-	public Sprite portrait;
-	public bool flipSprite = false;
+	public AudioClip soundbite;
 
 	DialogManager dialogManager;
-	bool in_range = false;
-	bool talking = false;
+	bool dialogActive = false;
 
-	void Start () {
+	void Start() {
 		dialogManager = DialogManager.Get();
+		dialogManager.setActiveEvent += ((v) => this.dialogActive = v);
 	}
 
-	void OnTriggerEnter2D(Collider2D collider) {
-		GameObject target = collider.gameObject;
-		if (target.tag == "Player") {
-			in_range = true;
+    public void OnInteraction(GameObject player) {
+		if (this.dialogActive) {
+			dialogManager.PressDialogKey();
+		} else {
+			dialogManager.RunDialog(this);
 		}
-	}
-
-	void OnTriggerExit2D(Collider2D collider) {
-		GameObject target = collider.gameObject;
-		if (target.tag == "Player") {
-			in_range = false;
-		}
-	}
-	
-	void Update () {
-		handleText();
-	}
-
-	void handleText() {
-		if (Input.GetKeyDown(KeyCode.Q) && in_range && !dialogManager.dialog_active) {
-			dialogManager.start(this);
-		}
-	}
+    }
 }

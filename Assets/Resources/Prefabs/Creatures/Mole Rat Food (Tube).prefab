@@ -46,6 +46,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,7 +121,7 @@ GameObject:
   - component: {fileID: 8880575527348568661}
   - component: {fileID: 8880575527348568667}
   m_Layer: 0
-  m_Name: Mole Rat Food
+  m_Name: Mole Rat Food (Tube)
   m_TagString: MoleRatFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +156,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -179,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: -220150211
   m_SortingLayer: 3
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: eaeed49f3abeddf4d930a63282febdb1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2be0164bf790c94e96cfaa83510636a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -306,6 +308,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

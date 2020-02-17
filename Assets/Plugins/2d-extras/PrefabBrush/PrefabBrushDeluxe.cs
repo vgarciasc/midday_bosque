@@ -59,8 +59,8 @@ namespace UnityEditor.Tilemaps
             {
                 Undo.MoveGameObjectToScene(instance, brushTarget.scene, "Paint Prefabs");
                 Undo.RegisterCreatedObjectUndo((Object) instance, "Paint Prefabs");
-
-                // instance.transform.SetParent(brushTarget.transform);
+                Transform objParent = GetCurrentRoom(grid, brushTarget, position);
+                instance.transform.SetParent(objParent);
                 instance.transform.position = grid.LocalToWorld(grid.CellToLocalInterpolated(position + m_Anchor));
             }
         }
@@ -83,12 +83,13 @@ namespace UnityEditor.Tilemaps
             if (brushTarget.layer == 31)
                 return;
 
-            Transform erased = GetObjectInCell(grid, brushTarget.transform.parent.parent, position);
+            Transform objParent = GetCurrentRoom(grid, brushTarget, position);
+            Transform erased = GetObjectInCell(grid, objParent, position);
             if (erased != null)
                 Undo.DestroyObjectImmediate(erased.gameObject);
         }
 
-        private static Transform GetObjectInCell(GridLayout grid, Transform parent, Vector3Int position)
+        private Transform GetObjectInCell(GridLayout grid, Transform parent, Vector3Int position)
         {
             int childCount = parent.childCount;
             Vector3 min = grid.LocalToWorld(grid.CellToLocalInterpolated(position));
@@ -98,15 +99,43 @@ namespace UnityEditor.Tilemaps
             for (int i = 0; i < childCount; i++)
             {
                 Transform child = parent.GetChild(i);
-                if (bounds.Contains(child.position))
+                if (bounds.Contains(child.position) && IsOurPrefab(child.gameObject))
                     return child;
             }
             return null;
         }
 
+        private bool IsOurPrefab(GameObject obj) {
+            for (int i = 0; i < m_Prefabs.Length; i++) {
+                if (m_Prefabs[i].name == obj.name) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private static float GetPerlinValue(Vector3Int position, float scale, float offset)
         {
             return Mathf.PerlinNoise((position.x + offset)*scale, (position.y + offset)*scale);
+        }
+
+        private static Transform GetCurrentRoom(GridLayout grid, GameObject brushTarget, Vector3Int position) {
+            Vector3 min = grid.LocalToWorld(grid.CellToLocalInterpolated(position));
+            Vector3 max = grid.LocalToWorld(grid.CellToLocalInterpolated(position + Vector3Int.one));
+            Vector3 center = (max + min) * 0.5f;
+
+            Transform roomContainer = GameObject.FindGameObjectWithTag("RoomContainer").transform;
+            for (int i = 0; i < roomContainer.childCount; i++) {
+                Transform room = roomContainer.GetChild(i);
+                Bounds roomBounds = new Bounds(room.position, new Vector3(9f, 9f));
+
+                if (roomBounds.Contains(center)) {
+                    return room;
+                }
+            }
+
+            return brushTarget.transform;
         }
     }
 

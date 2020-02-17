@@ -8,6 +8,7 @@ public class MoleRat : MonoBehaviour
         IDLE, MOVING, DIGGING
     };
 
+
     [SerializeField]
     float speed = 0.5f;
     [SerializeField]

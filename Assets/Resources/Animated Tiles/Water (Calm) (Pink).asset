@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adbf3b2ba73e074683492f2045ec0b7, type: 3}
+  m_Name: Water (Calm) (Pink)
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 4428007689558990534, guid: 01767cda13cae474e9852bd4877cb4d3, type: 3}
+  - {fileID: 3046590934834786288, guid: 01767cda13cae474e9852bd4877cb4d3, type: 3}
+  m_MinSpeed: 1
+  m_MaxSpeed: 1
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
