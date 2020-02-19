@@ -36,6 +36,7 @@ public class MoleRat : MonoBehaviour
     void Update() {
         // print(Vector3.Distance(target, this.transform.position));
         this.sr.flipX = (target.x - this.transform.position.x > 0);
+        // this.sr.flipX = (rb.velocity.x > 0);
     }
 
     void UpdateFloor() {
@@ -45,7 +46,8 @@ public class MoleRat : MonoBehaviour
     IEnumerator Loop() {
         while (true) {
             var food = sensors.observations.Find((f) => f.CompareTag("MoleRatFood"));
-            if (state != State.DIGGING && food != null) {
+            if (state != State.DIGGING && food != null 
+                && TilemapHelper.InPlayerRoom(this.gameObject)) {
                 targetObj = food;
                 target = food.transform.position;
                 state = State.MOVING;
@@ -58,10 +60,11 @@ public class MoleRat : MonoBehaviour
                     break;
                 case State.MOVING:
                     yield return Move();
-                    if (food == null) {
-                        state = State.IDLE;
-                    } else {
+                    if (food != null
+                        && Vector3.Distance(this.transform.position, food.transform.position) < 0.1f) {
                         state = State.DIGGING;
+                    } else {
+                        state = State.IDLE;
                     }
                     break;
                 case State.DIGGING:
@@ -104,10 +107,20 @@ public class MoleRat : MonoBehaviour
 
     IEnumerator Move() {
         this.GetComponent<EasyAnim>().duration /= 4f;
-        this.rb.velocity = (this.target - this.transform.position) * this.speed;
+        this.rb.velocity = (this.target - this.transform.position).normalized * this.speed;
 
+        float startTime = Time.time;
+        Vector3 startPos = this.transform.position;
+        float initialDistance = Vector3.Distance(this.target, this.transform.position);
+        
         yield return new WaitUntil(
-            () => Vector3.Distance(this.target, this.transform.position) < 0.1f);
+            () => {
+                float distanceToTarget = Vector3.Distance(this.target, this.transform.position);
+                float velocity = Vector3.Distance(startPos, this.transform.position) / (Time.time - startTime);
+                return distanceToTarget < 0.1f
+                    || distanceToTarget > initialDistance //wrong way
+                    || velocity < this.speed * 0.8f; //got stuck
+            });
 
         this.rb.velocity = Vector2.zero;
         this.GetComponent<EasyAnim>().duration *= 4f;
@@ -115,6 +128,10 @@ public class MoleRat : MonoBehaviour
     }
 
     IEnumerator Dig() {
+        if (targetObj == null) {
+            yield break;
+        }
+
         yield return new WaitForSeconds(0.5f);
         var food = targetObj.GetComponentInChildren<MoleRatFood>();
         if (food == null) {

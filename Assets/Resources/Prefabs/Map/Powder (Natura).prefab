@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 796031941463031056}
   - component: {fileID: 796031941463031057}
   - component: {fileID: 796031941463031071}
-  m_Layer: 0
-  m_Name: Powder
+  m_Layer: 18
+  m_Name: Powder (Natura)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

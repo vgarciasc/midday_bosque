@@ -60,7 +60,7 @@ public class ChemFire : ChemElement
         // this.transform.localScale = originalScale;
     }
 
-    protected override void Die() {
+    public override void Die() {
         animationSequence.Kill();
         base.Die();
     }
@@ -68,40 +68,30 @@ public class ChemFire : ChemElement
     IEnumerator Spread() {
         while (true) {
             yield return new WaitForSeconds(Random.Range(0.5f, 1f));
-            var adjs = HushPuppy.GetAdjacentTiles(this.transform.position);
-            
-            var currentRoom = roomManager.GetCurrentRoom();
-            var rooms = new List<Room>() { currentRoom };
-            rooms.AddRange(roomManager.GetAdjacentRooms(currentRoom));
+            SpreadToAdjacent();
+        }
+    }
 
-            var objs = new List<GameObject>();
-            foreach (var adj in adjs) {
-                foreach (var room in rooms) {
-                    objs.AddRange(room.GetGameObjectsAtTile(adj));
-                }
+    void SpreadToAdjacent() {
+        var toSpread = new List<ChemMaterial>();
+
+        Bounds bounds = new Bounds(this.transform.position, Vector3.one * 2);
+        var hits = Physics2D.OverlapAreaAll(bounds.min, bounds.max);
+        foreach (var hit in hits) {
+            var material = hit.transform.GetComponent<ChemMaterial>();
+            if (material != null) {
+                toSpread.Add(material);
             }
+        }
 
-            var materials = new List<ChemMaterial>();
-            var containedMaterials = ChemHelp.GetMaterialsFromContainers();
-            materials.AddRange(
-                containedMaterials.FindAll((f) => 
-                    adjs.Contains(f.transform.position)));
-            objs.ForEach((f) => {
-                var material = f.GetComponent<ChemMaterial>();
-                if (material != null) {
-                    materials.Add(material);
-                }
-            });
-            
-            // var fires = objs.FindAll((obj) => obj.GetComponent<ChemFire>() != null);
-            var fires = new List<ChemFire>(GameObject.FindObjectsOfType<ChemFire>());
+        var fires = new List<ChemFire>(GameObject.FindObjectsOfType<ChemFire>());
+        toSpread = toSpread.FindAll((material) => 
+            material.inflammable
+                && fires.Find((f) => f.transform.position == material.transform.position) == null
+        );
 
-            foreach (var material in materials) {
-                if (material.inflammable
-                    && fires.Find((f) => f.transform.position == material.transform.position) == null) {
-                        Instantiate(firePrefab, material.transform.position, Quaternion.identity, transform.parent);
-                }
-            }
+        foreach (var material in toSpread) {
+            Instantiate(firePrefab, material.transform.position, Quaternion.identity, transform.parent);
         }
     }
 }

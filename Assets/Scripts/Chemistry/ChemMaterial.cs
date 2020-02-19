@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class ChemMaterial : MonoBehaviour
-{
+public class ChemMaterial : MonoBehaviour {
+
     public float health = 0;
     public float maxHealth = 5;
     public bool inflammable = false;
+    [SerializeField]
+    GameObject firePrefab;
 
-    bool isDead = false;
+    protected bool isDead = false;
+    protected SpriteRenderer sr;
 
-    SpriteRenderer sr;
+    bool spawnedFire;
 
     public void OnEnable() {
         sr = this.GetComponent<SpriteRenderer>();
@@ -29,6 +32,15 @@ public class ChemMaterial : MonoBehaviour
         if (element.kind == ElementKind.FIRE) {
             if (inflammable) {
                 health -= Time.deltaTime;
+            }
+        }
+        else if (element.kind == ElementKind.EXPLOSION) {
+            if (inflammable && !spawnedFire) {
+                spawnedFire = true;
+                Instantiate(firePrefab,
+                    this.transform.position,
+                    Quaternion.identity,
+                    this.transform.parent);
             }
         }
     }

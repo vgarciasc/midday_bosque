@@ -9,7 +9,7 @@ public class PlayerItemUse : MonoBehaviour
 
     InventoryManager inventory;
     PlayerMovement movement;
-    PlayerElevation elevation;
+    Flooring flooring;
 
     [SerializeField]
     BottlableData bottled = null;
@@ -20,7 +20,7 @@ public class PlayerItemUse : MonoBehaviour
         inventory = InventoryManager.Get();
 
         movement = this.GetComponentInChildren<PlayerMovement>();
-        elevation = this.GetComponent<PlayerElevation>();
+        flooring = this.GetComponentInChildren<Flooring>();
     }
 
     public void UseItem() {
@@ -64,7 +64,7 @@ public class PlayerItemUse : MonoBehaviour
                 2f,
                 1 << LayerMask.NameToLayer("Walls")
                     | (1 << LayerMask.NameToLayer("Stairs"))
-                    | TilemapHelper.GetLayerMaskCreatureCollision(elevation.currentLevel));
+                    | TilemapHelper.GetLayerMaskCreatureCollision(flooring.currentLevel));
             if (hits.Length == 0) {
                 var obj = Instantiate(
                     Resources.Load(

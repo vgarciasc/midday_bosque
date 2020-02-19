@@ -45,9 +45,8 @@ public class PlayerActions : MonoBehaviour
     }
 
     private List<PlayerInteractive> GetInteractions() {
-        var playerColls = new List<BoxCollider2D>(this.GetComponents<BoxCollider2D>());
-        BoxCollider2D playerColl = new List<BoxCollider2D>(this.GetComponents<BoxCollider2D>())
-            .Find((f) => !f.isTrigger);
+        var playerColls = new List<BoxCollider2D>(this.GetComponentsInChildren<BoxCollider2D>());
+        BoxCollider2D playerColl = playerColls.Find((f) => !f.isTrigger);
         Vector3 playerCenter = playerColl.bounds.center;
 
         var hits = Physics2D.RaycastAll(

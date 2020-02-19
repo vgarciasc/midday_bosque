@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5413008209517006175}
   - component: {fileID: 5413008209517006174}
+  - component: {fileID: 5003687870138842135}
   m_Layer: 0
   m_Name: Powder (Applied)
   m_TagString: Untagged
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1359972107
   m_SortingLayer: 4
-  m_SortingOrder: 10
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 2b069bf8d52954d4b86c7f99c01e3244, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -81,3 +82,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5003687870138842135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413008209517006168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f187184bc0280d74487098e30de2441e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 5
+  inflammable: 0
+  firePrefab: {fileID: 949212862033589073, guid: 72ed730db0738fa4989d3f9e6b0dd876,
+    type: 3}
+  explosionPrefab: {fileID: 8760788226051901282, guid: 996db11c62d146f4a825dfb20bc1a564,
+    type: 3}

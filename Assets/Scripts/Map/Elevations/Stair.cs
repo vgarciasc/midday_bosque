@@ -11,16 +11,17 @@ public class Stair : MonoBehaviour
     List<Tilemap> tilemaps;
     Tilemap walls;
 
-    public GameObject blockLeft;
-    public GameObject blockRight;
+    [Header("References")]
+    [SerializeField]
+    private SpriteRenderer fakeWall;
 
     void Start() {
         this.tilemaps = new List<Tilemap>(FindObjectsOfType<Tilemap>());
         this.walls = TilemapHelper.GetWallsTilemap();
     }
 
-    void Update() {
-        HandleBlocks();
+    void OnEnable() {
+        ClearPath();
     }
 
     bool IsHorizontal() {
@@ -30,24 +31,24 @@ public class Stair : MonoBehaviour
 
     public virtual int GetTopLevel() {
         var stairVec = HushPuppy.GetVecAsTileVec(this.transform.position);
-        var stairTopVec = stairVec - Vector3Int.up;
+        var stairTopVec = stairVec + Vector3Int.up;
         return GetLevel(stairTopVec);
     }
 
     public virtual int GetBaseLevel() {
         var stairVec = HushPuppy.GetVecAsTileVec(this.transform.position);
-        var stairBaseVec = stairVec - Vector3Int.down;
+        var stairBaseVec = stairVec + Vector3Int.down;
         return GetLevel(stairBaseVec);
     }
 
     public virtual bool IsObjGoingUp(GameObject obj) {
         var diff = obj.transform.position - this.transform.position;
-        return diff.y < 0;
+        return diff.y > 0;
     }
 
     public virtual bool IsObjGoingDown(GameObject obj) {
         var diff = obj.transform.position - this.transform.position;
-        return diff.y > 0;
+        return diff.y < 0;
     }
 
     public int GetLevel(Vector3Int nextTileInt) {
@@ -56,9 +57,8 @@ public class Stair : MonoBehaviour
             if (!tilemapLayerName.Contains("Floor")) {
                 continue;
             }
-
+            
             int tilemapLevel = int.Parse(tilemapLayerName.Split('_')[1]);
-            tilemapLevel -= 1; //in the layers, we start counting on 1
             var nextTile = tilemap.GetTile(nextTileInt);
 
             if (nextTile != null) {
@@ -71,27 +71,15 @@ public class Stair : MonoBehaviour
         return -1; 
     }
 
-    void HandleBlocks() {
-        if (blockRight == null || blockLeft == null) return;
-        blockRight.SetActive(!ShouldIgnoreBlock(Vector2.right));
-        blockLeft.SetActive(!ShouldIgnoreBlock(Vector2.left));
-    }
+    void ClearPath() {
+        var walls = TilemapHelper.GetWallsTilemap();
+        var posInt = HushPuppy.GetVecAsTileVec(this.transform.position);
 
-    bool ShouldIgnoreBlock(Vector2 dir) {
-        Vector3Int currentInt = HushPuppy.GetVecAsTileVec(this.transform.position);
-        Vector3Int posInt = currentInt + HushPuppy.GetVecAsTileVec(dir);
-
-        var hits = Physics2D.RaycastAll(
-            new Vector2(
-                currentInt.x + 0.5f,
-                currentInt.y + 0.5f),
-            dir, 1f);
-        foreach (var hit in hits) {
-            if (hit.transform.gameObject.CompareTag("Stair")) {
-                return true;
-            }
+        var tile = walls.GetTile(posInt);
+        if (tile != null) {
+            var sprite = ((Tile) tile).sprite;
+            fakeWall.sprite = sprite;
+            walls.SetTile(posInt, null);
         }
-
-        return false;
     }
 }

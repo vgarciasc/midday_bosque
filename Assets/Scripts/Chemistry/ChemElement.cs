@@ -5,7 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 
 public enum ElementKind {
-    NONE, FIRE
+    NONE, FIRE, EXPLOSION
 }
 
 public class ChemElement : MonoBehaviour
@@ -40,22 +40,10 @@ public class ChemElement : MonoBehaviour
     }
 
     void HandleReactions() {
-        var room = roomManager.GetCurrentRoom();
-        var objs = room.GetGameObjectsAtTile(this.transform.position);
-        
-        var materials = new List<ChemMaterial>();
-        materials.AddRange(
-            ChemHelp.GetMaterialsFromContainers()
-                .FindAll((obj) => HushPuppy.IsAtTile(obj.transform.position, this.transform.position))
-        );
-        
-        foreach (var obj in objs) {
-            var material = obj.GetComponent<ChemMaterial>();
-            if (material != null) {
-                materials.Add(material);
-            }
-        }
-
+        var materials = new List<ChemMaterial>(
+            GameObject.FindObjectsOfType<ChemMaterial>());
+        materials = materials.FindAll((material) => 
+            material.transform.position == this.transform.position);
         React(materials);
     }
 
@@ -63,7 +51,7 @@ public class ChemElement : MonoBehaviour
         //do nothing
     }
 
-    protected virtual void Die() {
+    public virtual void Die() {
         if (isDead) return;
 
         isDead = true;

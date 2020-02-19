@@ -5,6 +5,17 @@ using UnityEngine.Tilemaps;
 
 public class TilemapHelper : MonoBehaviour
 {
+    [System.Serializable]
+    public class FloorTilemap {
+        public Tilemap map;
+        public int level;
+
+        public FloorTilemap(Tilemap map, int level) {
+            this.map = map;
+            this.level = level;
+        }
+    }
+
     static int maxFloorLevel = 2;
 
     public static Tilemap GetWallsTilemap() {
@@ -25,24 +36,32 @@ public class TilemapHelper : MonoBehaviour
         var posInt = HushPuppy.GetVecAsTileVec(position);
         int maxLevel = -1;
         
-        var tilemaps = new List<Tilemap>(FindObjectsOfType<Tilemap>());
-        foreach (var tilemap in tilemaps) {
-            string tilemapLayerName = LayerMask.LayerToName(tilemap.gameObject.layer);
-            if (!tilemapLayerName.Contains("Floor")) {
-                continue;
-            }
-
-            int tilemapLevel = int.Parse(tilemapLayerName.Split('_')[1]);
-            tilemapLevel -= 1; //in the layers, we start counting on 1
-            
-            var targetTile = tilemap.GetTile(posInt);
-
+        foreach (var tilemap in GetAllFloors()) {
+            var targetTile = tilemap.map.GetTile(posInt);
             if (targetTile != null) {
-                maxLevel = tilemapLevel > maxLevel ? tilemapLevel : maxLevel;
+                maxLevel = tilemap.level > maxLevel ? tilemap.level : maxLevel;
             }
         }
 
         return maxLevel;
+    }
+
+    public static List<FloorTilemap> GetAllFloors() {
+        var output = new List<FloorTilemap>();
+        new List<Tilemap>(FindObjectsOfType<Tilemap>())
+            .FindAll((tilemap) => {
+                string tilemapLayerName = LayerMask.LayerToName(tilemap.gameObject.layer);
+                return tilemapLayerName.Contains("Floor");
+            })
+            .ForEach((tilemap) => {
+                output.Add(new FloorTilemap(tilemap, GetFloorLevel(tilemap)));
+            });
+        return output;
+    }
+
+    private static int GetFloorLevel(Tilemap tilemap) {
+        string tilemapLayerName = LayerMask.LayerToName(tilemap.gameObject.layer);
+        return int.Parse(tilemapLayerName.Split('_')[1]);
     }
 
     public static Vector3 TilePosInFrontOfObj(GameObject obj, Vector3 direction) {
@@ -80,4 +99,13 @@ public class TilemapHelper : MonoBehaviour
         }
         return k;
     }
+
+    public static bool InPlayerRoom(GameObject obj) {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return false;
+        return TilemapHelper.InsideSameRoom(
+            obj.transform.position,
+            player.transform.position,
+            RoomManager.Get().dimensions);
+    }  
 }

@@ -82,7 +82,7 @@ eu que fiz rs.
 
 === MAN_WATERSELLER ===
 { stopping:
-- Boa tarde meu nome eh Coach Jonas. Gostaria de uma licao de empreendedorismo?
+- Boa tarde meu nome é Coach Jonas. Gostaria de uma lição de empreendedorismo?
 - Eu me mudei para a regiao querendo paz e sossego. Porem ao chegar descobri que a agua tem um leve gosto de terra.
  Ao inves de me ACOMODAR com a situacao adversa, fui <anim=SlowSine>PROATIVO</anim>.
  Estudei o <anim=SlowSine>LAYOUT</anim> da <anim=SlowSine>REGION</anim> e construi meu proprio <anim=SlowSine>ENCANAMENTO</anim>.
