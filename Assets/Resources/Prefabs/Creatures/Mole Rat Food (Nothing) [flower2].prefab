@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 7341114977114420844}
   - component: {fileID: 7341114977114420847}
   - component: {fileID: 7341114977114420846}
+  - component: {fileID: 3492482346676425658}
   m_Layer: 16
   m_Name: Hole
   m_TagString: Untagged
@@ -152,7 +153,8 @@ SpriteRenderer:
   m_SortingLayerID: -1359972107
   m_SortingLayer: 4
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 5eaa7bb5fb159244796b08488ff2c113, type: 3}
+  m_Sprite: {fileID: 7155363679517272232, guid: 8f9348d55daf70648bb46ab8c5229c34,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -189,6 +191,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3492482346676425658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341114977114420845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e783d25e252bd8f47b11ef7d9066b876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 7155363679517272232, guid: 8f9348d55daf70648bb46ab8c5229c34, type: 3}
+  - {fileID: -7589217754447679951, guid: 8f9348d55daf70648bb46ab8c5229c34, type: 3}
+  duration: 0.5
 --- !u!1 &7341114977284486277
 GameObject:
   m_ObjectHideFlags: 0

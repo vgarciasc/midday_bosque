@@ -40,10 +40,8 @@ public class PlayerItemUse : MonoBehaviour
     }
 
     void UseBottle() {
-        var hits = Physics2D.RaycastAll(
-            this.transform.position,
-            movement.lastDirection,
-            2f);
+        Bounds bounds = new Bounds(this.transform.position + movement.lastDirection, Vector2.one * 0.5f);
+        var hits = Physics2D.OverlapAreaAll(bounds.min, bounds.max);
         if (this.bottled == null || this.bottled.sprite == null) {
             foreach (var hit in hits) {
                 var bottlable = hit.transform.GetComponent<Bottlable>();
@@ -58,26 +56,44 @@ public class PlayerItemUse : MonoBehaviour
                 }
             }
         } else {
-            hits = Physics2D.RaycastAll(
-                this.transform.position,
-                movement.lastDirection,
-                2f,
-                1 << LayerMask.NameToLayer("Walls")
+            List<Vector3> directions = new List<Vector3>() { movement.lastDirection };
+
+            if (movement.lastDirection == Vector3.left) {
+                directions.Add(new Vector2(-1, 1));
+                directions.Add(new Vector2(-1, -1));
+            } else if (movement.lastDirection == Vector3.right) {
+                directions.Add(new Vector2(1, 1));
+                directions.Add(new Vector2(1, -1));
+            }
+
+            foreach (var dir in directions) {
+                var nextTile = TilemapHelper.TilePosInFrontOfObj(this.gameObject, dir);
+                Bounds tileBounds = new Bounds(nextTile, Vector2.one * 1.5f);
+                var tileHits = Physics2D.OverlapAreaAll(tileBounds.min, tileBounds.max,
+                    1 << LayerMask.NameToLayer("Walls")
                     | (1 << LayerMask.NameToLayer("Stairs"))
-                    | TilemapHelper.GetLayerMaskCreatureCollision(flooring.currentLevel));
-            if (hits.Length == 0) {
-                var obj = Instantiate(
-                    Resources.Load(
-                            "Prefabs/Creatures/" + bottled.prefabName,
-                            typeof(GameObject)) as GameObject,
-                    Vector2.zero,
-                    Quaternion.identity,
-                    this.transform.parent);
-                obj.transform.localPosition = TilemapHelper.TilePosInFrontOfObj(
-                    this.gameObject,
-                    movement.lastDirection);
-                bottled = null;
-                inventory.ChangeBottleIcon(null);
+                    | (TilemapHelper.GetLayerMaskCreatureCollision(flooring.currentLevel)));
+                
+                int k = 0;
+                foreach (var hit in tileHits) {
+                    if (!hit.CompareTag("Player")) {
+                        k++;
+                    }
+                }
+
+                if (k == 0) {
+                    var obj = Instantiate(
+                        Resources.Load(
+                                "Prefabs/Creatures/" + bottled.prefabName,
+                                typeof(GameObject)) as GameObject,
+                        this.transform.position,
+                        Quaternion.identity,
+                        this.transform.parent);
+                    obj.transform.localPosition = nextTile;
+                    bottled = null;
+                    inventory.ChangeBottleIcon(null);
+                    return;
+                }
             }
         }
     }

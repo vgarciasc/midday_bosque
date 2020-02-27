@@ -13,10 +13,12 @@ public class ImagePostProcress : AssetPostprocessor
 		string extension = name.Substring(name.LastIndexOf(".")).ToLower();
 
 		var size = GetWidthAndHeight(importer);
+		if (name.Contains("full")) return;
 
 		if (extension == ".png") {
 			importer.textureCompression = TextureImporterCompression.Uncompressed;
 			importer.filterMode = FilterMode.Point;
+
 			if (size.x == 16 || size.y == 16) { 
 				importer.spritePixelsPerUnit = 16;
 			}

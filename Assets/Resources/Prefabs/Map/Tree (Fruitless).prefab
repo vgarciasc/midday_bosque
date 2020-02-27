@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3274537111610712838}
   - component: {fileID: 3274537111610712837}
   - component: {fileID: 3274537111610712836}
+  - component: {fileID: 7448082419764549813}
   m_Layer: 18
   m_Name: Tree (Fruitless)
   m_TagString: Untagged
@@ -99,8 +100,35 @@ MonoBehaviour:
   health: 5
   maxHealth: 5
   inflammable: 1
+  firePrefab: {fileID: 0}
 --- !u!61 &3274537111610712836
 BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274537111610712842}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: b1fc30a5c3c04f04ca9fdba234bc65bd, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!60 &7448082419764549813
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,6 +150,13 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.37281513, y: 0.5050869}
+      - {x: -0.48833466, y: 0.24872017}
+      - {x: -0.49919128, y: -0.28526878}
+      - {x: -0.35246468, y: -0.5}
+      - {x: 0.38807774, y: -0.48982525}
+      - {x: 0.49380016, y: -0.2708454}
+      - {x: 0.4949131, y: 0.30522728}
+      - {x: 0.375, y: 0.5}

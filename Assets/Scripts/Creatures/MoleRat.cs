@@ -37,6 +37,9 @@ public class MoleRat : MonoBehaviour
         // print(Vector3.Distance(target, this.transform.position));
         this.sr.flipX = (target.x - this.transform.position.x > 0);
         // this.sr.flipX = (rb.velocity.x > 0);
+        this.rb.velocity = this.rb.velocity.magnitude > this.speed ? 
+            (this.rb.velocity.normalized) * this.speed
+            : this.rb.velocity;
     }
 
     void UpdateFloor() {

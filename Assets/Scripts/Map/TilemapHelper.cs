@@ -16,7 +16,7 @@ public class TilemapHelper : MonoBehaviour
         }
     }
 
-    static int maxFloorLevel = 2;
+    static int maxFloorLevel = 3;
 
     public static Tilemap GetWallsTilemap() {
         foreach (var tilemap in GameObject.FindObjectsOfType<Tilemap>()) {
