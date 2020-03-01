@@ -63,10 +63,11 @@ eu que fiz rs.
 
 === MAN_CUTTING_TREE ===
 { cycle:
-- FALA PRA MIM. VOCÊ JA VIU UMA ARVORE QUE CRESCE EM 1 NOITE?
-NEM EU. MAS TODO DIA DE MANHÃ APARECE UMA ARVORE NOVA AQUI POR PERTO.
-- ESTOU COMECANDO A ACHAR QUE AQUELAS PLANTINHAS IRRITANTES AO LESTE ESTÃO DE SACANAGEM COM A MINHA CARA
-ELES NAO TEM NOÇÃO DO PERIGO QUE EH TER UMA ARVORE DESSE TIPO PERTO DOS MINÉRIOS?
+- TODO DIA DE MANHÃ APARECE UMA ARVORE NOVA AQUI NA MINA.
+FALA PRA MIM. VOCÊ JA VIU UMA ARVORE QUE CRESCE EM 1 NOITE?
+NÃO? NEM EU.
+- ESTOU COMECANDO A ACHAR QUE AQUELAS PLANTINHAS IRRITANTES ESTÃO DE SACANAGEM COM A MINHA CARA
+ELES NAO TEM NOÇÃO DO PERIGO QUE EH TER UMA ARVORE DESSAS PERTO DOS MINÉRIOS?
 OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MINA?
 - <color=\#FF0000>MALDITAS PLANTINHAS <anim=FullShake>AAAAAAAAAAAAAAA</anim></color>
 }
@@ -111,4 +112,33 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 - <color=\#ed63d8><anim=SlowestSine>caracol eh mto bom irmaozinho...</anim></color>
 - <color=\#ed63d8><anim=SlowestSine>caracol. huuummmm...</anim></color>
 }
+-> END
+
+=== KOROK_OLD_MINE ===
+{ cycle: 
+- ...
+- ...
+- ...
+- ...
+- ...
+- ...
+- ...bem feito.
+}
+-> END
+
+=== SIGN_OLD_MINE ===
+{ cycle: 
+- <color=\#555555>(velha mina)</color>
+}
+-> END
+
+=== SIGN_NEW_MINE ===
+{ cycle: 
+- <color=\#555555>COMPANHIA DE MINERAÇÃO DOS IRMÃOS CAVA-CAVA</color>
+}
+-> END
+
+=== BEGINNING_CUTSCENE ===
+- Já fazem 5 dias que vocês estão na estrada.<br><br>Você não se incomoda em carregar o corpo dele. É pesado, mas você aguenta.<br><br>O que te incomoda é não saber se o plano de vocês é um *bom plano*.
+- Será que <color=\#d62885>Ela</color> existe de verdade? E mesmo se existir, será que <color=\#d62885>Ela</color> é capaz de tudo que dizem?<br><br>...<br><br>Ninguém nunca encontrou <color=\#d62885>Ela</color> e voltou pra contar a história.<br><br>Talvez você seja a primeira.
 -> END

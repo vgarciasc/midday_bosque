@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7197324028594197292}
   - component: {fileID: 7197324028594197294}
   - component: {fileID: 4864791539889493958}
-  m_Layer: 18
+  m_Layer: 9
   m_Name: Fireball
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -146,3 +146,4 @@ MonoBehaviour:
   firePrefab: {fileID: 949212862033589073, guid: 72ed730db0738fa4989d3f9e6b0dd876,
     type: 3}
   speed: 5
+  fireballDeath: {fileID: 8300000, guid: 00b1e64c9ad7c424a90b38fb077c97dd, type: 3}

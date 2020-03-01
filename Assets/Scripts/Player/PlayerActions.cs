@@ -16,6 +16,8 @@ public class PlayerActions : MonoBehaviour
     public InputAction rollAction;
     public InputAction changeItemAction;
 
+    bool frozen;
+
     void Start() {
         movement = this.GetComponent<PlayerMovement>();
         itemUse = this.GetComponent<PlayerItemUse>();
@@ -31,15 +33,19 @@ public class PlayerActions : MonoBehaviour
     }
 
     public void SetFreeze(bool value) {
+        frozen = value;
         movement.SetActive(!value);
         itemUse.SetActive(!value);
     }
 
     #region Fire
     private void Fire() {
+        CutsceneTyper.Get().PressDialogKey();
+        
         if (CanInteract()) {
             Interact();
         } else {
+            if (frozen) return;
             itemUse.UseItem();
         }
     }
@@ -75,10 +81,12 @@ public class PlayerActions : MonoBehaviour
     #endregion Fire
 
     private void Roll() {
+        if (frozen) return;
         movement.Roll();
     }
 
     private void ChangeItem() {
+        if (frozen) return;
         itemUse.SelectNextItem();
     }
 }

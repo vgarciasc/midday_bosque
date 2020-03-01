@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class PlayerItemUse : MonoBehaviour
 {
+    public UnityEvent itemUseError;
+    public UnityEvent bottleUseIn;
+    public UnityEvent bottleUseOut;
+    public UnityEvent putPowder;
+    public UnityEvent throwFireball;
+
     public GameObject fireballPrefab;
     public GameObject powderPrefab;
 
@@ -52,9 +59,12 @@ public class PlayerItemUse : MonoBehaviour
                     );
                     inventory.ChangeBottleIcon(bottled.sprite);
                     Destroy(hit.transform.gameObject);
+                    bottleUseIn.Invoke();
                     return;
                 }
             }
+
+            itemUseError.Invoke();
         } else {
             List<Vector3> directions = new List<Vector3>() { movement.lastDirection };
 
@@ -92,9 +102,12 @@ public class PlayerItemUse : MonoBehaviour
                     obj.transform.localPosition = nextTile;
                     bottled = null;
                     inventory.ChangeBottleIcon(null);
+                    bottleUseOut.Invoke();
                     return;
                 }
             }
+
+            itemUseError.Invoke();
         }
     }
 
@@ -107,6 +120,7 @@ public class PlayerItemUse : MonoBehaviour
         var fireball = obj.GetComponent<Fireball>();
         fireball.Init(movement.lastDirection);
         inventory.Change(ItemsEnum.FIRE_FRUIT, -1);
+        throwFireball.Invoke();
     }
 
     void UsePowder() {
@@ -117,6 +131,7 @@ public class PlayerItemUse : MonoBehaviour
             this.transform.parent);
         obj.transform.localPosition = TilemapHelper.TilePosInFrontOfObj(this.gameObject, movement.lastDirection);
         inventory.Change(ItemsEnum.POWDER, -1);
+        putPowder.Invoke();
     }
 
     public void SelectNextItem() {

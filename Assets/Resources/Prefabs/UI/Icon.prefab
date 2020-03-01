@@ -393,3 +393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedMarker: {fileID: 1794750279295071994}
+  icon: {fileID: 1298616344304863288}
+  consumable: 0
+  itemName: 

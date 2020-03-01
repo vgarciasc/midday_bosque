@@ -97,3 +97,4 @@ MonoBehaviour:
   kind: 2
   maxHealth: 3
   health: 0
+  explosionClip: {fileID: 8300000, guid: ffa2566a2fbaa384c942e96ae1d6b8cc, type: 3}

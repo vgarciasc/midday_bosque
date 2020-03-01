@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7341114976627858069}
   - component: {fileID: 7341114976627858068}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7341114977114420847}
   - component: {fileID: 7341114977114420846}
   - component: {fileID: 8313979313726033329}
-  m_Layer: 16
+  m_Layer: 8
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 7341114977284486278}
   - component: {fileID: 7341114977284486279}
   - component: {fileID: 7341114977284486281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mole Rat Food (Nothing) [flower1]
   m_TagString: MoleRatFood
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7341114977961583974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Under
   m_TagString: Untagged
   m_Icon: {fileID: 0}

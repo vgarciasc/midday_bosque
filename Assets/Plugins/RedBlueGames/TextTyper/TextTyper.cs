@@ -261,6 +261,11 @@
                         }
                     } else
                     {
+                        if (symbol.Text == "<br>") {
+                            printedCharCount++;
+                            this.characterPrintDelays.Add(nextDelay);
+                        }
+
                         // Unrecognized CustomTag Type. Should we error here?
                     }
 

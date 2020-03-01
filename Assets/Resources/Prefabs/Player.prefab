@@ -412,6 +412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b76d68340c993554ba1276f8aa87c410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemUseError:
+    m_PersistentCalls:
+      m_Calls: []
   fireballPrefab: {fileID: 7197324028594197290, guid: 701b5364b0dcf224bbf91e9966c7a507,
     type: 3}
   powderPrefab: {fileID: 5413008209517006168, guid: d66de3478e9b972458048151147707bf,
@@ -426,12 +429,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481856387429474864}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b376064afc707e47b9f94fb86a7c475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   footsteps: {fileID: 8300000, guid: ebcf6864705523445a38109cbfbe457d, type: 3}
+  itemUseError: {fileID: 8300000, guid: e987c3040843a6241ac4f21cd4a2e61c, type: 3}
 --- !u!82 &279758037
 AudioSource:
   m_ObjectHideFlags: 0

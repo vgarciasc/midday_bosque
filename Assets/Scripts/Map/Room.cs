@@ -6,6 +6,7 @@ public class Room : MonoBehaviour
 {
     public int index = -1;
     public Transform startingPos;
+    public bool volumeToneDown;
 
     public List<GameObject> GetGameObjectsAtTile(Vector3 position, bool onlyActive = true) {
         var output = new List<GameObject>();

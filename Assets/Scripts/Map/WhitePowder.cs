@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class WhitePowder : MonoBehaviour, PlayerInteractive {
-    [HideInInspector]
-    public UnityEvent acquisitionEvent;
+    public delegate void AcquisionDelegate(GameObject obj);
+    public event AcquisionDelegate acquisitionEvent;
 
     public void OnInteraction(GameObject player) {
         InventoryManager.Get().Change(ItemsEnum.POWDER, 1);
-        acquisitionEvent.Invoke();
-        Destroy(this.gameObject);
+        if (acquisitionEvent != null) {
+            acquisitionEvent(this.transform.gameObject);
+        }
     }
 }

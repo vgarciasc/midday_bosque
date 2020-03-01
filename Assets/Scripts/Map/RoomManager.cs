@@ -14,6 +14,9 @@ public class RoomManager : MonoBehaviour
 
     public Vector3 dimensions = new Vector2(10, 10);
 
+    public delegate void RoomChange(Room r);
+    public event RoomChange roomChangeEvent;
+
     void Start()
     {
         rooms = new List<Room>(GameObject.FindObjectsOfType<Room>());
@@ -28,16 +31,11 @@ public class RoomManager : MonoBehaviour
         // GameObject.FindObjectOfType<Player>().transform.position = firstRoom.transform.position;
     }
 
-    public void RegisterChange(Vector3 direction) {
-        foreach (var room in rooms) {
-            if (room.transform.position - rooms[currentRoomIdx].transform.position == direction) {
-                currentRoomIdx = room.index;
-                // DeactivateRooms();
-                return;
-            }
+    public void RegisterChange(Vector3 roomCenter) {
+        Room room = rooms.Find((r) => r.transform.localPosition == roomCenter);
+        if (roomChangeEvent != null) {
+            roomChangeEvent(room);
         }
-
-        Debug.LogError("This should not be happening");
     }
 
     void DeactivateRooms() {

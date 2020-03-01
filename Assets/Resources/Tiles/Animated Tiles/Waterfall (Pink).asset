@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0adbf3b2ba73e074683492f2045ec0b7, type: 3}
+  m_Name: Waterfall (Pink)
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 1425555645292099085, guid: c1af646f1d05f9442837ec9e9ebe452f, type: 3}
+  - {fileID: 3959047948201179417, guid: c1af646f1d05f9442837ec9e9ebe452f, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

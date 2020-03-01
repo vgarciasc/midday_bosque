@@ -21,6 +21,8 @@ public class InventoryManager : MonoBehaviour
 
     [SerializeField]
     List<ItemUI> items = new List<ItemUI>();
+    [SerializeField]
+    AudioClip selectItemClip;
 
     [HideInInspector]
     public ItemUI currentItem = null;
@@ -33,6 +35,12 @@ public class InventoryManager : MonoBehaviour
         }
 
         AcquireItem(ItemsEnum.BOTTLE);
+        Change(ItemsEnum.FIRE_FRUIT, 999);
+        Change(ItemsEnum.POWDER, 3);
+
+        var player = GameObject.FindGameObjectWithTag("Player");
+        var playerItemUse = player.GetComponentInChildren<PlayerItemUse>();
+        playerItemUse.itemUseError.AddListener(ItemUseError);
     }
 
     void AcquireItem(ItemsEnum kind) {
@@ -72,6 +80,7 @@ public class InventoryManager : MonoBehaviour
                 nextIndexObj.GetComponent<InventoryItemUI>().ToggleSelected(true);
 
                 this.currentItem = this.items.Find((f) => f.objUI == nextIndexObj);
+                EasyAudio.Get().audio.PlayOneShot(this.selectItemClip, 0.05f);
                 return;
             }
         } while (nextIndex != currIndex);
@@ -101,5 +110,11 @@ public class InventoryManager : MonoBehaviour
 
         inventory[itemkind] += amount;
         itemUI.SetAmount(inventory[itemkind]);
+    }
+
+    void ItemUseError() {
+        if (currentItem != null) {
+            currentItem.objUI.GetComponent<InventoryItemUI>().FadeError();
+        }
     }
 }

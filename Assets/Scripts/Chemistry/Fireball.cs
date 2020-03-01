@@ -6,6 +6,7 @@ public class Fireball : MonoBehaviour
 {
     public GameObject firePrefab;
     public float speed = 1f;
+    public AudioClip fireballDeath;
 
     Rigidbody2D rb;
 
@@ -50,7 +51,7 @@ public class Fireball : MonoBehaviour
                 }
             }
 
-            Destroy(this.gameObject);
+            Die();
             return;
         }
     }
@@ -64,6 +65,11 @@ public class Fireball : MonoBehaviour
             material.transform.position,
             Quaternion.identity,
             this.transform.parent);
+        Die();
+    }
+
+    void Die() {
+        EasyAudio.Get().audio.PlayOneShot(this.fireballDeath, 0.05f);
         Destroy(this.gameObject);
     }
 }

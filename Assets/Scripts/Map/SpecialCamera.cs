@@ -57,6 +57,8 @@ public class SpecialCamera : MonoBehaviour
             this.transform.DOMove(roomCenter + offset, dur);
             letterboxTilemap.transform.DOMove(roomCenter, dur);
             lastRoomCenter = roomCenter;
+
+            roomManager.RegisterChange(roomCenter);
         }
     }
 

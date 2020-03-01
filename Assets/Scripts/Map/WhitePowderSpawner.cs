@@ -15,8 +15,9 @@ public class WhitePowderSpawner : MonoBehaviour
 
     void Start() {
         foreach (var powder in GameObject.FindObjectsOfType<WhitePowder>()) {
-            powder.GetComponent<WhitePowder>().acquisitionEvent.AddListener(Respawn);
-            usedPositions.Add(powder.transform.position);
+            if (TilemapHelper.InsideSameRoom(this.transform.position, powder.transform.position, RoomManager.Get().dimensions)) {
+                RegisterPowder(powder);
+            }
         }
 
         if (spawnPoints.Count == 0) {
@@ -25,18 +26,27 @@ public class WhitePowderSpawner : MonoBehaviour
         }
     }
 
-    public void Respawn() {
+    public void Respawn(GameObject destroyedPowder) {
+        usedPositions.Remove(destroyedPowder.transform.position);
+        Destroy(destroyedPowder);
         StartCoroutine(RespawnTimer());
     }
 
     IEnumerator RespawnTimer() {
         yield return new WaitForSeconds(respawnInterval);
+        yield return new WaitWhile(() => TilemapHelper.InPlayerRoom(this.gameObject));
+        yield return new WaitForSeconds(0.5f);
         Vector3 position = FindVacantPosition();
-        Instantiate(whitePowderPrefab, position, Quaternion.identity, this.transform.parent);
-        usedPositions.Add(position);
+        var obj = Instantiate(whitePowderPrefab, position, Quaternion.identity, this.transform.parent);
+        RegisterPowder(obj.GetComponent<WhitePowder>());
     }
 
     Vector3 FindVacantPosition() {
         return spawnPoints.Find((sp) => !usedPositions.Contains(sp.position)).position;
+    }
+
+    void RegisterPowder(WhitePowder powder) {
+        powder.acquisitionEvent += Respawn;
+        usedPositions.Add(powder.transform.position);
     }
 }
