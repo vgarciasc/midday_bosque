@@ -34,16 +34,16 @@ public class InventoryManager : MonoBehaviour
             inventory.Add(item, 0);
         }
 
-        AcquireItem(ItemsEnum.BOTTLE);
-        Change(ItemsEnum.FIRE_FRUIT, 999);
-        Change(ItemsEnum.POWDER, 3);
+        // AcquireItem(ItemsEnum.BOTTLE);
+        // Change(ItemsEnum.FIRE_FRUIT, 999);
+        // Change(ItemsEnum.POWDER, 3);
 
         var player = GameObject.FindGameObjectWithTag("Player");
         var playerItemUse = player.GetComponentInChildren<PlayerItemUse>();
         playerItemUse.itemUseError.AddListener(ItemUseError);
     }
 
-    void AcquireItem(ItemsEnum kind) {
+    public void AcquireItem(ItemsEnum kind) {
         var obj = GetItemUI(kind).objUI;
         obj.transform.SetAsLastSibling();
         obj.SetActive(true);
@@ -51,6 +51,12 @@ public class InventoryManager : MonoBehaviour
         if (currentItem.objUI == null) {
             obj.GetComponent<InventoryItemUI>().ToggleSelected(true);
             currentItem = GetItemUI(kind);
+        }
+    }
+
+    public void LoseAllItems() {
+        foreach (ItemsEnum item in System.Enum.GetValues(typeof(ItemsEnum))) {
+            UnacquireItem(item);
         }
     }
 

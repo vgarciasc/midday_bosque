@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: 04cb94828daa87b47a8612bf2cbe0c5d
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3335072915775094413
+    second: fairybottle_0-0
+  - first:
+      213: -3192730558914936156
+    second: fairybottle_1-0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:

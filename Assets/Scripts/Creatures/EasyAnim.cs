@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EasyAnim : MonoBehaviour
 {
-    [SerializeField]
-    List<Sprite> frames = new List<Sprite>();
-    [Range(0f, 1f)]
+    public List<Sprite> frames = new List<Sprite>();
+    [Range(0f, 3f)]
     public float duration = 0.05f;
 
     SpriteRenderer sr;

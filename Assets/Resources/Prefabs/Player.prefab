@@ -25,7 +25,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481856387429474879
 Transform:
   m_ObjectHideFlags: 0
@@ -415,6 +415,18 @@ MonoBehaviour:
   itemUseError:
     m_PersistentCalls:
       m_Calls: []
+  bottleUseIn:
+    m_PersistentCalls:
+      m_Calls: []
+  bottleUseOut:
+    m_PersistentCalls:
+      m_Calls: []
+  putPowder:
+    m_PersistentCalls:
+      m_Calls: []
+  throwFireball:
+    m_PersistentCalls:
+      m_Calls: []
   fireballPrefab: {fileID: 7197324028594197290, guid: 701b5364b0dcf224bbf91e9966c7a507,
     type: 3}
   powderPrefab: {fileID: 5413008209517006168, guid: d66de3478e9b972458048151147707bf,
@@ -436,6 +448,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footsteps: {fileID: 8300000, guid: ebcf6864705523445a38109cbfbe457d, type: 3}
   itemUseError: {fileID: 8300000, guid: e987c3040843a6241ac4f21cd4a2e61c, type: 3}
+  bottleUseIn: {fileID: 8300000, guid: 39ca33ab9752c4d46a63b54306aa335b, type: 3}
+  bottleUseOut: {fileID: 8300000, guid: 5555acca5be395645af4996c1f062f30, type: 3}
+  putPowder: {fileID: 8300000, guid: 39ca33ab9752c4d46a63b54306aa335b, type: 3}
+  throwFireball: {fileID: 8300000, guid: 5abaa14fd9a517f4e92e4f69e9a165dc, type: 3}
 --- !u!82 &279758037
 AudioSource:
   m_ObjectHideFlags: 0
@@ -448,8 +464,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 0
+  m_Volume: 0.8
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -593,6 +609,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572476210800290672, guid: 1e2cbdbf4958b914d9bd330c1be9316a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3572476210800290675, guid: 1e2cbdbf4958b914d9bd330c1be9316a,
         type: 3}

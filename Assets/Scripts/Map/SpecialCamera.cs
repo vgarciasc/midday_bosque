@@ -36,6 +36,9 @@ public class SpecialCamera : MonoBehaviour
             firstRoom.startingPos == null ? 
                 firstRoom.transform.position : 
                 firstRoom.startingPos.transform.position;
+        
+        var flooring = cameraFocus.GetComponentInChildren<Flooring>();
+        if (flooring != null) flooring.UpdateFlooring();
     }
 
     void Update() {

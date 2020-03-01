@@ -37,6 +37,10 @@ public class TeleportDoor : Stair
         } else if (destinationPos) {
             player.transform.position = destinationPos.transform.position;
         }
+        
+        var flooring = player.GetComponentInChildren<Flooring>();
+        if (flooring != null) flooring.UpdateFlooring();
+
         yield return fadeManager.Fade(0f);
 
         player.GetComponent<PlayerActions>().SetFreeze(false);

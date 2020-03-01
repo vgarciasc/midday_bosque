@@ -142,3 +142,7 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 - Já fazem 5 dias que vocês estão na estrada.<br><br>Você não se incomoda em carregar o corpo dele. É pesado, mas você aguenta.<br><br>O que te incomoda é não saber se o plano de vocês é um *bom plano*.
 - Será que <color=\#d62885>Ela</color> existe de verdade? E mesmo se existir, será que <color=\#d62885>Ela</color> é capaz de tudo que dizem?<br><br>...<br><br>Ninguém nunca encontrou <color=\#d62885>Ela</color> e voltou pra contar a história.<br><br>Talvez você seja a primeira.
 -> END
+
+=== ENDING_CUTSCENE ===
+- (<color=\#FF0000>true ending</color>)
+-> END

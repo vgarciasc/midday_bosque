@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: 4cd5071d9d4557d4cbea9af10d6aeae8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3686268197228715024
+    second: great_fairy_full_0-0
+  - first:
+      213: -58019605032233257
+    second: great_fairy_full_1-0
+  - first:
+      213: -4876020884818893878
+    second: great_fairy_full_2-0
+  - first:
+      213: -7579694908992726498
+    second: great_fairy_full_3-0
+  - first:
+      213: 142262604113269664
+    second: great_fairy_full_4-0
+  - first:
+      213: -2499671886718695603
+    second: great_fairy_full_5-0
+  - first:
+      213: -3175080042621477364
+    second: great_fairy_full_6-0
+  - first:
+      213: 2753335257437687209
+    second: great_fairy_full_7-0
+  - first:
+      213: -1284490745370332812
+    second: great_fairy_full_0-1
+  - first:
+      213: -5887349848295519579
+    second: great_fairy_full_1-1
+  - first:
+      213: -7247313403285402203
+    second: great_fairy_full_2-1
+  - first:
+      213: -7160671494635606963
+    second: great_fairy_full_3-1
+  - first:
+      213: 2973104977721146177
+    second: great_fairy_full_4-1
+  - first:
+      213: 6497456922867196082
+    second: great_fairy_full_5-1
+  - first:
+      213: -3834090590135370160
+    second: great_fairy_full_6-1
+  - first:
+      213: -8115430645410433123
+    second: great_fairy_full_7-1
+  - first:
+      213: 7617713992428786890
+    second: great_fairy_full_0
+  - first:
+      213: -8807884227383486641
+    second: great_fairy_full_1
+  - first:
+      213: -8139088832530480838
+    second: great_fairy_full_0-2
+  - first:
+      213: -4145243975100752501
+    second: great_fairy_full_1-2
+  - first:
+      213: -5346597948305459387
+    second: great_fairy_full_2-2
+  - first:
+      213: -5992025543301120629
+    second: great_fairy_full_3-2
+  - first:
+      213: 3144097828721820797
+    second: great_fairy_full_4-2
+  - first:
+      213: 6886360265258532793
+    second: great_fairy_full_5-2
+  - first:
+      213: -8487167925544161237
+    second: great_fairy_full_6-2
+  - first:
+      213: -3706291363783986060
+    second: great_fairy_full_7-2
+  - first:
+      213: -7999758879658919301
+    second: great_fairy_full_0-3
+  - first:
+      213: -3628321804120197033
+    second: great_fairy_full_1-3
+  - first:
+      213: -2443322815342702536
+    second: great_fairy_full_2-3
+  - first:
+      213: 2883615042287585765
+    second: great_fairy_full_3-3
+  - first:
+      213: -2473716510135461403
+    second: great_fairy_full_4-3
+  - first:
+      213: -2116358999226848371
+    second: great_fairy_full_5-3
+  - first:
+      213: -4238833522565703833
+    second: great_fairy_full_6-3
+  - first:
+      213: 6693910163196239347
+    second: great_fairy_full_7-3
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: great_fairy_full_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac49d37048e87b960800000000000000
+      internalID: 7617713992428786890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: great_fairy_full_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f479a0c16fb14c580800000000000000
+      internalID: -8807884227383486641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

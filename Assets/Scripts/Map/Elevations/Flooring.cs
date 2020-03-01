@@ -8,6 +8,10 @@ public class Flooring : MonoBehaviour {
     private List<GameObject> stairs = new List<GameObject>();
 
     void OnEnable() {
+        UpdateFlooring();
+    }
+
+    public void UpdateFlooring() {
         this.currentLevel = TilemapHelper.GetFloor(this.transform.position);
         ChangeLevel(this.currentLevel);
     }

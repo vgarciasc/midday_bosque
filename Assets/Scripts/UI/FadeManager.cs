@@ -13,8 +13,7 @@ public class FadeManager : MonoBehaviour
     [SerializeField]
     CanvasGroup screen;
 
-    public IEnumerator Fade(float target) {
-        float duration = 0.25f;
+    public IEnumerator Fade(float target, float duration = 0.25f) {
         screen.DOFade(target, duration);
         yield return new WaitForSeconds(duration);
     }

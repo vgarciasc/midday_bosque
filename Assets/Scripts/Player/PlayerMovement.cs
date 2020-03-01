@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
             this.rb.velocity = Vector2.zero;
             this.animator.SetInteger("horizontal", 0);
             this.animator.SetInteger("vertical", 0);
+            this.animator.SetBool("rolling", false);
+            this.animator.SetBool("walking", false);
             return;
         }
 

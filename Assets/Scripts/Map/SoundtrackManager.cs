@@ -39,12 +39,13 @@ public class SoundtrackManager : MonoBehaviour
         }
     }
 
-    public void ToggleSoundtrack(bool value) {
+    public void ToggleSoundtrack(bool value, AudioClip clip = null) {
         if (value) {
-            audio.clip = soundtrack;
+            audio.volume = originalVolume;
+            audio.clip = clip != null ? clip : soundtrack;
             audio.Play();
         } else {
-            audio.Stop();
+            audio.DOFade(0f, 2f);
         }
     }
 }
