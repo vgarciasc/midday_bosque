@@ -147,3 +147,5 @@ MonoBehaviour:
     type: 3}
   speed: 5
   fireballDeath: {fileID: 8300000, guid: 00b1e64c9ad7c424a90b38fb077c97dd, type: 3}
+  fireballFailParticlesPrefab: {fileID: 7942779283533402560, guid: c533f957b9cc3c84fb1c96be6382abe8,
+    type: 3}

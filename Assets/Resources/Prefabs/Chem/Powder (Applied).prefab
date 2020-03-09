@@ -97,9 +97,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 5
-  inflammable: 0
+  inflammable: 1
   firePrefab: {fileID: 949212862033589073, guid: 72ed730db0738fa4989d3f9e6b0dd876,
     type: 3}
+  catchFire:
+    m_PersistentCalls:
+      m_Calls: []
+  death:
+    m_PersistentCalls:
+      m_Calls: []
   explosionPrefab: {fileID: 8760788226051901282, guid: 996db11c62d146f4a825dfb20bc1a564,
     type: 3}
 --- !u!61 &5745873635903586407

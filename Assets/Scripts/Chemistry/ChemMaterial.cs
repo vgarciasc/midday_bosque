@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 using DG.Tweening;
 
@@ -13,6 +14,9 @@ public class ChemMaterial : MonoBehaviour {
 
     protected bool isDead = false;
     protected SpriteRenderer sr;
+
+    public UnityEvent catchFire;
+    public UnityEvent death;
 
     bool spawnedFire;
 
@@ -30,6 +34,7 @@ public class ChemMaterial : MonoBehaviour {
 
     public virtual void React(ChemElement element) {
         if (element.kind == ElementKind.FIRE) {
+            catchFire.Invoke();
             if (inflammable) {
                 health -= Time.deltaTime;
             }
@@ -49,7 +54,9 @@ public class ChemMaterial : MonoBehaviour {
         if (isDead) return;
         
         isDead = true;
-        sr.DOFade(0, 0.5f).OnComplete(() => 
-            Destroy(this.gameObject));
+        sr.DOFade(0, 0.5f).OnComplete(() => {
+            death.Invoke(); 
+            Destroy(this.gameObject);
+        });
     }
 }

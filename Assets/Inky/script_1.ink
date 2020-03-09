@@ -36,7 +36,7 @@
 estou cansado de seres humanos estragando nosso BOSQUE!!
 - mas ja que veio, saca soh nossa mais nova estatua. nao eh linda?
 eu que fiz rs.
-- fala que eh linda
+- fala que eh linda...
 }
 -> END
 
@@ -56,6 +56,8 @@ eu que fiz rs.
 - elas ficam cavando, procurando agua no chao.
 - elas sempre estao com sede, mesmo com um lago inteiro do lado.
 - elas sao tao bobinhas!
+}
+{ cycle:
 - eu empatizo com elas, pq tambem sempre estou com fome e sede. a vida de pessoa-planta eh dificil.
 - eu gosto das toupeiras. elas sao minhas amigas! :)
 }
@@ -73,8 +75,17 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 }
 -> END
 
+=== MAN_CUTTING_NOMORETREE ===
+{ cycle:
+- <color=\#FF0000>MEU DEUS DO CEU VC É MALUCO??</color>
+- <color=\#FF0000>VC PODIA TER EXPLODIDO TODO MUNDO!!!!!!</color>
+- <color=\#FF0000>AAAAAAAAAAAAAA</color>
+- <color=\#FF0000>(mas obrigado por ter tirado a arvore)</color>
+}
+-> END
+
 === MAN_MINE ===
-{ stopping:
+{ cycle:
 - Oi! Escuta aqui, vc tb acha que vai chover?
 - Quando chove eu nao trabalho...
 - \(tomara que chova tomara que chova\)
@@ -82,7 +93,7 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 -> END
 
 === MAN_WATERSELLER ===
-{ stopping:
+{ cycle:
 - Boa tarde meu nome é Coach Jonas. Gostaria de uma lição de empreendedorismo?
 - Eu me mudei para a regiao querendo paz e sossego. Porem ao chegar descobri que a agua tem um leve gosto de terra.
  Ao inves de me ACOMODAR com a situacao adversa, fui <anim=SlowSine>PROATIVO</anim>.
@@ -96,7 +107,7 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 -> END
 
 === KOROK_WATER ===
-{ stopping:
+{ cycle:
 - oi! esse eh o nosso lago.
  eu adoro a agua do lago, sem ela eu morreria de sede!
 - tem gente que reclama que ela tem gosto de terra, mas caramba, terra eh tao gostoso!! <color=\#bbbbbb>(sou uma planta)</color>
@@ -117,12 +128,6 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 === KOROK_OLD_MINE ===
 { cycle: 
 - ...
-- ...
-- ...
-- ...
-- ...
-- ...
-- ...bem feito.
 }
 -> END
 
@@ -138,6 +143,12 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 }
 -> END
 
+=== SIGN_BOSQUE_ENTRY ===
+{ cycle: 
+- <color=\#555555>BOSQUE DA SANTA FADA</color>
+}
+-> END
+
 === BEGINNING_CUTSCENE ===
 - Já fazem 5 dias que vocês estão na estrada.<br><br>Você não se incomoda em carregar o corpo dele. É pesado, mas você aguenta.<br><br>O que te incomoda é não saber se o plano de vocês é um *bom plano*.
 - Será que <color=\#d62885>Ela</color> existe de verdade? E mesmo se existir, será que <color=\#d62885>Ela</color> é capaz de tudo que dizem?<br><br>...<br><br>Ninguém nunca encontrou <color=\#d62885>Ela</color> e voltou pra contar a história.<br><br>Talvez você seja a primeira.
@@ -145,4 +156,20 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 
 === ENDING_CUTSCENE ===
 - (<color=\#FF0000>true ending</color>)
+-> END
+
+=== SIGN_DESERT ===
+- <color=\#555555>DESERTO PERDIDO (fechado para manutenções)</color>
+-> END
+
+=== MAN_MINER ===
+{ cycle: 
+- oi! vc quer ser meu amigo?
+}
+-> END
+
+=== MAN_MINER_AFTER_EXPLOSION ===
+{ cycle:
+- <anim=LightPos>uhhh... eu nao sei se quero ser mais seu amigo...</anim>
+}
 -> END

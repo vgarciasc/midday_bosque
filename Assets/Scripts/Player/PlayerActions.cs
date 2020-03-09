@@ -40,6 +40,10 @@ public class PlayerActions : MonoBehaviour
 
     #region Fire
     private void Fire() {
+        if (this.GetComponent<PlayerStorySpecificStuff>().isFairy) {
+            return;
+        }
+    
         CutsceneTyper.Get().PressDialogKey();
         
         if (CanInteract()) {

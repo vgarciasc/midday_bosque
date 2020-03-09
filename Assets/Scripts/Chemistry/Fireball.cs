@@ -7,6 +7,7 @@ public class Fireball : MonoBehaviour
     public GameObject firePrefab;
     public float speed = 1f;
     public AudioClip fireballDeath;
+    public GameObject fireballFailParticlesPrefab;
 
     Rigidbody2D rb;
 
@@ -59,6 +60,7 @@ public class Fireball : MonoBehaviour
     List<ChemMaterial> reacted = new List<ChemMaterial>();
     void React(ChemMaterial material) {
         if (reacted.Contains(material)) return;
+        if (!material.inflammable) return;
 
         reacted.Add(material);
         Instantiate(firePrefab,
@@ -70,6 +72,7 @@ public class Fireball : MonoBehaviour
 
     void Die() {
         EasyAudio.Get().audio.PlayOneShot(this.fireballDeath, 0.05f);
+        // Instantiate(fireballFailParticlesPrefab, this.transform.position, Quaternion.identity, this.transform.parent);
         Destroy(this.gameObject);
     }
 }

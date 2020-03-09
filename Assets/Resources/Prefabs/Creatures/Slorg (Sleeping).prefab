@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4651048951723245842}
   - component: {fileID: -3032058770487593900}
   - component: {fileID: 8856785862564688197}
+  - component: {fileID: -5444458205647030053}
   m_Layer: 18
   m_Name: Slorg (Sleeping)
   m_TagString: Untagged
@@ -115,7 +116,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 5000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -182,6 +183,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5444458205647030053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078203840762972937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156c3d25180db6d4b91f41f4b82c5188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 1
+  inflammable: 1
+  firePrefab: {fileID: 949212862033589073, guid: 72ed730db0738fa4989d3f9e6b0dd876,
+    type: 3}
+  catchFire:
+    m_PersistentCalls:
+      m_Calls: []
+  death:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &6361450897490097720
 PrefabInstance:
   m_ObjectHideFlags: 0

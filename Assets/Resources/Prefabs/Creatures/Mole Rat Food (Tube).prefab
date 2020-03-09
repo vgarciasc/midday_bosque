@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8880575527182696638}
   - component: {fileID: 8880575527182696637}
   - component: {fileID: 8880575527182696636}
-  m_Layer: 16
+  m_Layer: 8
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 8880575527348568660}
   - component: {fileID: 8880575527348568661}
   - component: {fileID: 8880575527348568667}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mole Rat Food (Tube)
   m_TagString: MoleRatFood
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8880575528013648820}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Under
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8880575528843668551}
   - component: {fileID: 8880575528843668550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

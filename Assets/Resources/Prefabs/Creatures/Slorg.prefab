@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8078203840762972980}
   - component: {fileID: 4651048951723245842}
   - component: {fileID: -2083379778027239471}
+  - component: {fileID: -8743292945197745147}
   m_Layer: 18
   m_Name: Slorg
   m_TagString: Untagged
@@ -128,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slorgSlimePrefab: {fileID: 8688612270499656335, guid: 5fb95ff1c1ff4f4479dc97f90388e99d,
     type: 3}
-  speed: 2
+  speed: 0.5
 --- !u!50 &8078203840762972980
 Rigidbody2D:
   serializedVersion: 4
@@ -182,6 +183,29 @@ MonoBehaviour:
   - {fileID: -1021354796739202168, guid: 5da74e822a5f6414babf88cc9a145f05, type: 3}
   - {fileID: -7157223092077659380, guid: 5da74e822a5f6414babf88cc9a145f05, type: 3}
   duration: 0.3
+--- !u!114 &-8743292945197745147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078203840762972937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156c3d25180db6d4b91f41f4b82c5188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 1
+  inflammable: 1
+  firePrefab: {fileID: 949212862033589073, guid: 72ed730db0738fa4989d3f9e6b0dd876,
+    type: 3}
+  catchFire:
+    m_PersistentCalls:
+      m_Calls: []
+  death:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5431887577238693184
 PrefabInstance:
   m_ObjectHideFlags: 0

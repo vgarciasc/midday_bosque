@@ -124,12 +124,22 @@ public class PlayerItemUse : MonoBehaviour
     }
 
     void UsePowder() {
+        var targetPosInt = (this.transform.position - this.transform.localPosition)
+                           + TilemapHelper.TilePosInFrontOfObj(this.gameObject, movement.lastDirection);
+        Bounds bounds = new Bounds(targetPosInt, Vector2.one * 0.5f);
+        var hits = Physics2D.OverlapAreaAll(bounds.min, bounds.max);
+        foreach (var hit in hits) {
+            if (hit.GetComponentInChildren<ChemPowder>() != null) {
+                return;
+            }
+        }
+
         var obj = Instantiate(
             powderPrefab,
             Vector2.zero,
             Quaternion.identity,
             this.transform.parent);
-        obj.transform.localPosition = TilemapHelper.TilePosInFrontOfObj(this.gameObject, movement.lastDirection);
+        obj.transform.position = targetPosInt;
         inventory.Change(ItemsEnum.POWDER, -1);
         putPowder.Invoke();
     }

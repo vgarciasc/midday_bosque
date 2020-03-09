@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class MoleRat : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MoleRat : MonoBehaviour
     float speed = 0.5f;
     [SerializeField]
     float distance = 2f;
+    [SerializeField]
+    SpriteRenderer exclamationMark;
 
     int currFloorLevel = -1;
 
@@ -28,6 +31,7 @@ public class MoleRat : MonoBehaviour
         this.rb = this.GetComponent<Rigidbody2D>();
         this.sr = this.GetComponent<SpriteRenderer>();
         this.sensors = this.GetComponentInChildren<Sensors>();
+        this.exclamationMark.color = Color.clear;
 
         UpdateFloor();
         StartCoroutine(Loop());
@@ -54,6 +58,7 @@ public class MoleRat : MonoBehaviour
                 targetObj = food;
                 target = food.transform.position;
                 state = State.MOVING;
+                // yield return ShowExclamation();
             }
 
             switch (state) {
@@ -62,7 +67,7 @@ public class MoleRat : MonoBehaviour
                     state = State.MOVING;
                     break;
                 case State.MOVING:
-                    yield return Move();
+                    yield return Move(food != null);
                     if (food != null
                         && Vector3.Distance(this.transform.position, food.transform.position) < 0.1f) {
                         state = State.DIGGING;
@@ -108,8 +113,8 @@ public class MoleRat : MonoBehaviour
         this.target = this.transform.position + dir;
     }
 
-    IEnumerator Move() {
-        this.GetComponent<EasyAnim>().duration /= 4f;
+    IEnumerator Move(bool goingToFood) {
+        this.GetComponent<EasyAnim>().duration /= goingToFood ? 4f : 1.5f;
         this.rb.velocity = (this.target - this.transform.position).normalized * this.speed;
 
         float startTime = Time.time;
@@ -126,7 +131,7 @@ public class MoleRat : MonoBehaviour
             });
 
         this.rb.velocity = Vector2.zero;
-        this.GetComponent<EasyAnim>().duration *= 4f;
+        this.GetComponent<EasyAnim>().duration *= goingToFood ? 4f : 1.5f;
         UpdateFloor();
     }
 
@@ -142,6 +147,17 @@ public class MoleRat : MonoBehaviour
         } else {
             food.Die();
         }
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator ShowExclamation() {
+        exclamationMark.transform.localScale = new Vector3(1.3f, 0.7f, 1f);
+        exclamationMark.DOColor(Color.white, 0.05f);
+        exclamationMark.transform.DOScale(new Vector3(0.7f, 1.3f, 1f), 0.1f);
+        yield return new WaitForSeconds(0.1f);
+        exclamationMark.transform.DOScale(Vector3.one, 0.1f);
+        yield return new WaitForSeconds(0.3f);
+        exclamationMark.DOColor(Color.clear, 0.05f);
         yield return new WaitForSeconds(0.5f);
     }
 }

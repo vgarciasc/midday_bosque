@@ -64,11 +64,11 @@ public class TilemapHelper : MonoBehaviour
         return int.Parse(tilemapLayerName.Split('_')[1]);
     }
 
-    public static Vector3 TilePosInFrontOfObj(GameObject obj, Vector3 direction) {
-        Vector3 target = obj.transform.localPosition;
+    public static Vector3 TilePosInFrontOfObj(GameObject obj, Vector3 direction, bool local = true) {
+        Vector3 target = local ? obj.transform.localPosition : obj.transform.position;
         target = target + direction * 0.5f;
         target = HushPuppy.GetVecAsTileVec(target, false, true);
-        return target; //SHOULD BE localPosition!
+        return target;
     }
 
     public static Vector3 GetRoomCenter(Vector3 obj_pos, Vector2 dim) {

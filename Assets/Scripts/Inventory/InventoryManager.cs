@@ -36,7 +36,7 @@ public class InventoryManager : MonoBehaviour
 
         // AcquireItem(ItemsEnum.BOTTLE);
         // Change(ItemsEnum.FIRE_FRUIT, 999);
-        // Change(ItemsEnum.POWDER, 3);
+        // Change(ItemsEnum.POWDER, 999);
 
         var player = GameObject.FindGameObjectWithTag("Player");
         var playerItemUse = player.GetComponentInChildren<PlayerItemUse>();
@@ -52,6 +52,8 @@ public class InventoryManager : MonoBehaviour
             obj.GetComponent<InventoryItemUI>().ToggleSelected(true);
             currentItem = GetItemUI(kind);
         }
+
+        EasyAudio.Get().audio.PlayOneShot(this.selectItemClip, 0.05f);
     }
 
     public void LoseAllItems() {
@@ -106,8 +108,11 @@ public class InventoryManager : MonoBehaviour
 
     public void Change(ItemsEnum itemkind, int amount) {
         var itemUI = GetItemUI(itemkind).objUI.GetComponent<InventoryItemUI>();
-        
-        if (inventory[itemkind] == 0 && amount > 0) {
+        if (amount > 0) {
+            EasyAudio.Get().audio.PlayOneShot(this.selectItemClip, 0.05f);
+        }
+
+        if (inventory[itemkind] == 0) {
             AcquireItem(itemkind);
         }
         if (inventory[itemkind] + amount == 0) {

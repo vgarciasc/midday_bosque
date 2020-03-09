@@ -133,7 +133,7 @@ public class CutsceneManager : MonoBehaviour
 
         yield return new WaitForSeconds(10f);
 
-        Application.Quit();
+        // Application.Quit();
         SceneLoader.LoadScene_("Title Screen");
 
         yield break;
