@@ -10,7 +10,9 @@ public class DialogManager : MonoBehaviour {
     [Header("Settings")]
     [Header("Assets")]
     [SerializeField]
-	private TextAsset inkAsset;
+	private TextAsset inkAssetPortuguese;
+    [SerializeField]
+	private TextAsset inkAssetEnglish;
     [Header("References")]
     [SerializeField]
 	private TextMeshProUGUI text;
@@ -59,7 +61,16 @@ public class DialogManager : MonoBehaviour {
 
 	public void RunDialog(DialogCharacter character) {
 		this.currDialog = character;
-		this._story = new Story(inkAsset.text);
+		if (PlayerPrefs.GetString("language") == "pt-BR") {
+			this._story = new Story(inkAssetPortuguese.text);
+		} else if (PlayerPrefs.GetString("language") == "en") {
+			this._story = new Story(inkAssetEnglish.text);
+		} else {
+			Debug.Break();
+			Debug.LogError("This should not be happening.");
+			this._story = new Story(inkAssetPortuguese.text);
+		}
+
 		if (savedJson != "") {
 			this._story.state.LoadJson(savedJson);
 		}

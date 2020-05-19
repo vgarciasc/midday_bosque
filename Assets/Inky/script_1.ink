@@ -9,7 +9,7 @@
 === FAIRY_STATUE ===
 { cycle: 
 - <color=\#555555>"Em homenagem a SANTA FADA, defensora do bosque."</color>
-<color=\#555555>"Que suas asas nos protejam e suas águas nos iluminem."</color>
+<color=\#555555>"Que suas águas sagradas nos curem."</color>
 }
 -> END
 
@@ -18,14 +18,12 @@
 -> END
 
 === KOROK_SNAIL ===
-{ stopping: 
-- mamae me trancou aqui fora... DE NOVO
- ela disse q eu encho mto o saco e nao deixo ela fazer o almoco!
-- eu tenho culpa irmaozinho? caracol eh mto gostoso.
-}
 { cycle:
-- eu mesmo iria pegar caracol pra eu comer, se mamae deixasse eu ir pras cavernas ao norte!
-- caracol. <anim=SlowSine>hummmmm</anim>
+- hoje eu comi um quilo de caracol no almoco!
+ foi a coisa mais gostosa que eu ja comi na minha vida inteira!
+- a melhor coisa q fizemos foi investigar as cavernas ao norte.
+ elas dao medo, eh verdade. mas valeu a pena. afinal, vc sabe como diz o ditado...
+- <anim=SlowSine>caracol eh gostoso!</anim>
 }
 -> END
 
@@ -98,11 +96,10 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 - Eu me mudei para a regiao querendo paz e sossego. Porem ao chegar descobri que a agua tem um leve gosto de terra.
  Ao inves de me ACOMODAR com a situacao adversa, fui <anim=SlowSine>PROATIVO</anim>.
  Estudei o <anim=SlowSine>LAYOUT</anim> da <anim=SlowSine>REGION</anim> e construi meu proprio <anim=SlowSine>ENCANAMENTO</anim>.
- Agora tenho acesso a agua mais <anim=LightPos>PURA POSSIVEL</anim>!!!
-- Na verdade ela eh tao <anim=FullShake><color=\#d62885>PURA</color></anim> que acho que possui propriedades magicas de cura.
- Toda vez que eu dou um gole, eu fico 3 segundos mais jovem!!
-- Ainda estou estudando o <anim=SlowSine>MARKET</anim> pra entender como <anim=LightPos>CAPITALIZAR</anim> em cima desse produto...
- Mas pra ser sincero nao tenho tido muita vontade de empreender ultimamente...
+ (Fazer os canos foi dificil. Voce sabia que canos apenas seguem linhas retas?)
+- Agora tenho acesso a agua mais <anim=LightPos>PURA POSSIVEL</anim>!!! Com isso, eu poderei salvar milhares de vidas!
+ O que? Voce conhece alguem que esta doente? Hum, sinto muito...
+ As embalagens ainda nao ficaram prontas! Volte daqui a duas semanas.
 }
 -> END
 
@@ -151,7 +148,7 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 
 === BEGINNING_CUTSCENE ===
 - Já fazem 5 dias que vocês estão na estrada.<br><br>Você não se incomoda em carregar o corpo dele. É pesado, mas você aguenta.<br><br>O que te incomoda é não saber se o plano de vocês é um *bom plano*.
-- Será que <color=\#d62885>Ela</color> existe de verdade? E mesmo se existir, será que <color=\#d62885>Ela</color> é capaz de tudo que dizem?<br><br>...<br><br>Ninguém nunca encontrou <color=\#d62885>Ela</color> e voltou pra contar a história.<br><br>Talvez você seja a primeira.
+- Será que <color=\#d62885>Ela</color> existe de verdade? E mesmo se existir, será que <color=\#d62885>Ela</color> é capaz de tudo que dizem?<br><br>...<br><br>Ninguém nunca encontrou <color=\#d62885>Ela</color> e voltou pra contar a história.<br><br>Você terá de ser a primeira.
 -> END
 
 === ENDING_CUTSCENE ===
@@ -159,7 +156,7 @@ OU SERÁ QUE ELES QUEREM REPETIR A <anim=LightPos>CATÁSTROFE</anim> DA VELHA MI
 -> END
 
 === SIGN_DESERT ===
-- <color=\#555555>DESERTO PERDIDO (fechado para manutenções)</color>
+- <color=\#555555>DESERTO PERDIDO (fechado para manutenções. nada existe além desse ponto, eu juro)</color>
 -> END
 
 === MAN_MINER ===

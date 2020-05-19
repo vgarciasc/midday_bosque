@@ -15,7 +15,9 @@ public class CutsceneTyper : MonoBehaviour
     [SerializeField]
     private TextTyper typer;
     [SerializeField]
-	private TextAsset inkAsset;
+	private TextAsset inkAssetPortuguese;
+    [SerializeField]
+	private TextAsset inkAssetEnglish;
     [SerializeField]
     private TextMeshProUGUI text;
     [SerializeField]
@@ -43,7 +45,15 @@ public class CutsceneTyper : MonoBehaviour
     }
 
     public void PrepareText(string path) {
-        this._story = new Story(inkAsset.text);
+		if (PlayerPrefs.GetString("language") == "pt-BR") {
+			this._story = new Story(inkAssetPortuguese.text);
+		} else if (PlayerPrefs.GetString("language") == "en") {
+			this._story = new Story(inkAssetEnglish.text);
+		} else {
+			Debug.Break();
+			Debug.LogError("This should not be happening.");
+			this._story = new Story(inkAssetPortuguese.text);
+		}
 		this._story.ChoosePathString(path);
     }
 

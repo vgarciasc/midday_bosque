@@ -10,6 +10,11 @@ public class TitleScreenManager : MonoBehaviour
 
     bool active = false;
 
+    public void Enter(string language) {
+        PlayerPrefs.SetString("language", language);
+        PressEnter_();
+    }
+
     public void PressEnter_() {
         StartCoroutine(PressEnter());
     }
